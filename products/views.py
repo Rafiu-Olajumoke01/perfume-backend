@@ -5,7 +5,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from .models import Product
 from .serializers import ProductSerializer
 
-# ✅ GET all products
+
 @api_view(['GET'])
 def get_products(request):
     products = Product.objects.all()
