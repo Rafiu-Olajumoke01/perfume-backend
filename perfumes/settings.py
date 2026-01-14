@@ -21,7 +21,7 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 # Allowed hosts (Render URL included)
 ALLOWED_HOSTS = os.environ.get(
     'ALLOWED_HOSTS',
-    'localhost,127.0.0.1,perfume-backend-2.onrender.com'
+    'localhost,127.0.0.1,.onrender.com'
 ).split(',')
 
 # Custom user model
@@ -75,7 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'perfumes.wsgi.application'
 
-# Database configuration - PostgreSQL for Render
+# Database configuration - PostgreSQL for Render (optional)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -87,7 +87,7 @@ DATABASES = {
     }
 }
 
-# Fallback to SQLite for local development
+# Fallback to SQLite for Render or local development
 if not os.environ.get('PGDATABASE'):
     DATABASES = {
         'default': {
@@ -141,7 +141,7 @@ CORS_ALLOWED_ORIGINS = os.environ.get(
 # CSRF Trusted Origins
 CSRF_TRUSTED_ORIGINS = os.environ.get(
     'CSRF_TRUSTED_ORIGINS',
-    'https://perfume-backend-2.onrender.com'
+    'https://*.onrender.com'
 ).split(',')
 
 # Default primary key field type
