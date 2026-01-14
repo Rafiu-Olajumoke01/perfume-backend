@@ -134,15 +134,23 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# CORS Configuration - Allow all origins for testing
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS Configuration - Updated for production
+CORS_ALLOW_ALL_ORIGINS = False  
 CORS_ALLOW_CREDENTIALS = True
 
-# CSRF Trusted Origins
-CSRF_TRUSTED_ORIGINS = os.environ.get(
-    'CSRF_TRUSTED_ORIGINS',
-    'https://*.onrender.com'
-).split(',')
+# Allow requests from your Vercel frontend
+CORS_ALLOWED_ORIGINS = [
+    'https://perfume-website-self.vercel.app',  
+    'http://localhost:3000',  
+    'http://localhost:5173', 
+]
+
+# CSRF Trusted Origins - Updated to include Vercel
+CSRF_TRUSTED_ORIGINS = [
+    'https://perfume-website-self.vercel.app', 
+    'https://perfume-backend-4.onrender.com',  
+    'https://*.onrender.com',  
+]
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
