@@ -138,15 +138,19 @@ MEDIA_ROOT = BASE_DIR / 'media'
 CORS_ALLOW_ALL_ORIGINS = False  
 CORS_ALLOW_CREDENTIALS = True
 
-# Allow requests from your Vercel frontend
+# Allow requests from your frontend
 CORS_ALLOWED_ORIGINS = [
+    'https://hmccollections.com',
+    'https://www.hmccollections.com',
     'https://perfume-website-self.vercel.app',  
     'http://localhost:3000',  
     'http://localhost:5173', 
 ]
 
-# CSRF Trusted Origins - Updated to include Vercel
+# CSRF Trusted Origins
 CSRF_TRUSTED_ORIGINS = [
+    'https://hmccollections.com',
+    'https://www.hmccollections.com',
     'https://perfume-website-self.vercel.app', 
     'https://perfume-backend-4.onrender.com',  
     'https://*.onrender.com',  
